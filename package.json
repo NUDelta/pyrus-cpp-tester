@@ -1,0 +1,17 @@
+{
+  "name": "cpp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "JSCPP": "^2.0.8",
+    "asty": "^1.7.10",
+    "pegjs": "^0.10.0",
+    "pegjs-util": "^1.4.10"
+  }
+}

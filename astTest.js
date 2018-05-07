@@ -1,10 +1,10 @@
-var fs      = require("fs");
-var ASTY    = require("asty");
-var PEG     = require("pegjs");
-var PEGUtil = require("pegjs-util");
+const fs = require("fs");
+const ASTY = require("asty");
+const PEG = require("pegjs");
+const PEGUtil = require("pegjs-util");
 
 // merge two arrays cpp code
-var code =  `void Concatenate(char *s1,char *s2)
+const code = `void Concatenate(char *s1,char *s2)
 {
     char s[200];
     int len1=strlen(s1);
@@ -25,12 +25,12 @@ var code =  `void Concatenate(char *s1,char *s2)
     cout<<s;
 }`;
 
-var asty = new ASTY();
-var parser = PEG.generate(fs.readFileSync("./ast-modified.pegjs", "utf8"));
-var result = PEGUtil.parse(parser, code, {
-    makeAST: function (line, column, offset, args) {
-        return asty.create.apply(asty, args).pos(line, column, offset);
-    }
+const asty = new ASTY();
+const parser = PEG.generate(fs.readFileSync("./ast-modified.pegjs", "utf8"));
+const result = PEGUtil.parse(parser, code, {
+  makeAST: function (line, column, offset, args) {
+    return asty.create.apply(asty, args).pos(line, column, offset);
+  }
 });
 
 console.log(result.ast);
